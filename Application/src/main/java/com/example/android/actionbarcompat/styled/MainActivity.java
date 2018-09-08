@@ -47,46 +47,45 @@ import java.util.List;
  * Many of the drawables used in this sample were generated with the
  * 'Android Action Bar Style Generator': http://jgilfelt.github.io/android-actionbarstylegenerator
  */
-public class MainActivity extends AppCompatActivity /*implements ActionBar.TabListener*/ {
+public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
-    private List<Event> eventList = new ArrayList<>();
-    //private RecyclerView recyclerView;
-    private EventsAdapter mAdapter;
+//    private List<Event> eventList = new ArrayList<>();
+//    private RecyclerView recyclerView;
+//    private EventsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sample_main);  // testtest.xml includes a button that calls
-                                            // SwitchToAR()
+        setContentView(R.layout.sample_main);
 
         // Set the Action Bar to use tabs for navigation
         ActionBar ab = getSupportActionBar();
-  //      ab.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        ab.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Add three tabs to the Action Bar for display
-/*        ab.addTab(ab.newTab().setText("Tab 1").setTabListener(this));
+        ab.addTab(ab.newTab().setText("Tab 1").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 2").setTabListener(this));
-        ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));*/
+        ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));
 
-        DatabaseComponent databaseComponent = new DatabaseComponent();
-        databaseComponent.test_addDummyEventData();
-        databaseComponent.getEvents();
+//        DatabaseComponent databaseComponent = new DatabaseComponent();
+//        databaseComponent.test_addDummyEventData();
+//        databaseComponent.getEvents();
 
-        prepareEventData();     // Sample Events to test RecyclerView
+//        prepareEventData();     // Sample Events to test RecyclerView
     }
 
 
-    private void prepareEventData() {
-/*        Event event = new Event("Test Event 1", "DATE", "START_TIME", "END_TIME", "PLACE");
-        eventList.add(event);
-
-        event = new Event("Test Event 2", "DATE", "START_TIME", "END_TIME", "PLACE");
-        eventList.add(event);*/
-    }
-
-    private void clearEventData() {
-        eventList.clear();
-    }
+//    private void prepareEventData() {
+//        Event event = new Event("Test Event 1", "DATE", "START_TIME", "END_TIME", "PLACE");
+//        eventList.add(event);
+//
+//        event = new Event("Test Event 2", "DATE", "START_TIME", "END_TIME", "PLACE");
+//        eventList.add(event);
+//    }
+//
+//    private void clearEventData() {
+//        eventList.clear();
+//    }
 
 /*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity /*implements ActionBar.TabLi
 
         return super.onCreateOptionsMenu(menu);
     }
-
+*/
     // Implemented from ActionBar.TabListener
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -104,13 +103,13 @@ public class MainActivity extends AppCompatActivity /*implements ActionBar.TabLi
         if (tab.getText().equals("Tab 1")) {
             setContentView(R.layout.sample_main);
 
-            recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-            mAdapter = new EventsAdapter(eventList);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-            recyclerView.setLayoutManager(mLayoutManager);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(mAdapter);
+//            recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+//
+//            mAdapter = new EventsAdapter(eventList);
+//            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//            recyclerView.setLayoutManager(mLayoutManager);
+//            recyclerView.setItemAnimator(new DefaultItemAnimator());
+//            recyclerView.setAdapter(mAdapter);
         }
 
         if (tab.getText().equals("Tab 2")) {
@@ -135,13 +134,8 @@ public class MainActivity extends AppCompatActivity /*implements ActionBar.TabLi
         // This is called when a previously selected tab is selected again.
     }
 
-    public void SwitchToAR(View view){
-        Intent intent = new Intent(getApplicationContext(), AR.class);
-        startActivity(intent);
-    }
-
     public void switchToMaps() {
         Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
         startActivity(intent);
-    }*/
+    }
 }
