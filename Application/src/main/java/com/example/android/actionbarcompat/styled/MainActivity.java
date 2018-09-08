@@ -16,11 +16,13 @@
 
 package com.example.android.actionbarcompat.styled;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.View;
 
 /**
  * This sample shows you how to use ActionBarCompat with a customized theme. It utilizes a split
@@ -40,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sample_main);
+        setContentView(R.layout.testtest);  // testtest.xml includes a button that calls
+                                            // SwitchToAR()
 
         // Set the Action Bar to use tabs for navigation
         ActionBar ab = getSupportActionBar();
@@ -76,5 +79,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a previously selected tab is selected again.
+    }
+
+    public void SwitchToAR(View view){
+        Intent intent = new Intent(getApplicationContext(), AR.class);
+        startActivity(intent);
     }
 }
