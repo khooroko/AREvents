@@ -22,6 +22,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
+import com.example.android.actionbarcompat.styled.db_connection.DatabaseComponent;
+
 /**
  * This sample shows you how to use ActionBarCompat with a customized theme. It utilizes a split
  * action bar when running on a device with a narrow display, and show three tabs.
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Tab 1").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 2").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));
+        DatabaseComponent databaseComponent = new DatabaseComponent();
+
     }
 
     @Override
