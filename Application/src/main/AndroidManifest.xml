@@ -58,6 +58,7 @@
                 android:value="splitActionBarWhenNarrow" />
 
         </activity>
+        <activity android:name=".AR"></activity>
     </application>
 
 </manifest>
