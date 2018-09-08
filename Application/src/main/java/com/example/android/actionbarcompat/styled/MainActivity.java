@@ -25,7 +25,6 @@ import android.support.v7.widget.LinearLayoutManager;
 
 
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.example.android.actionbarcompat.styled.db_connection.DatabaseComponent;
@@ -65,17 +64,19 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Tab 1").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 2").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));
+
         DatabaseComponent databaseComponent = new DatabaseComponent();
         // databaseComponent.addUser("Alice", "John", 1995);
 
+        prepareEventData();     // Sample Events to test RecyclerView
     }
 
 
     private void prepareEventData() {
-        Event event = new Event("Test Event 1");
+        Event event = new Event("Test Event 1", "DATE", "START_TIME", "END_TIME", "PLACE");
         eventList.add(event);
 
-        event = new Event("Test Event 2");
+        event = new Event("Test Event 2", "DATE", "START_TIME", "END_TIME", "PLACE");
         eventList.add(event);
     }
 
@@ -106,8 +107,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(mAdapter);
-
-            prepareEventData();
         }
 
         if (tab.getText().equals("Tab 2")) {

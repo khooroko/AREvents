@@ -1,6 +1,7 @@
 package com.example.android.actionbarcompat.styled;
 
 import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,18 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
+        public TextView date;
+        public TextView startTime;
+        public TextView endTime;
+        public TextView place;
 
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.name);
+            date = (TextView) view.findViewById(R.id.date);
+            startTime = (TextView) view.findViewById(R.id.startTime);
+            endTime = (TextView) view.findViewById(R.id.endTime);
+            place = (TextView) view.findViewById(R.id.place);
         }
     }
 
@@ -38,6 +47,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Event event = eventsList.get(position);
         holder.name.setText(event.getName());
+        holder.date.setText(event.getDate());
+        holder.startTime.setText(event.getStartTime());
+        holder.endTime.setText(event.getEndTime());
+        holder.place.setText(event.getPlace());
     }
 
     @Override
