@@ -133,6 +133,15 @@ obj/
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+.idea/libraries/Gradle_*
+.gradle/4.4/*
+.gradle/buildOutputCleanup/*
+AREvents.iml
+Application/Application.iml
+local.properties
+.idea/caches/*
+#build
+Application/build/*
 
 # OS-specific files
 .DS_Store
