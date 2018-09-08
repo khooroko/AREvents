@@ -56,8 +56,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.testtest);  // testtest.xml includes a button that calls
-                                            // SwitchToAR()
+        setContentView(R.layout.sample_main);
 
         // Set the Action Bar to use tabs for navigation
         ActionBar ab = getSupportActionBar();
@@ -114,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         if (tab.getText().equals("Tab 2")) {
             setContentView(R.layout.tab2);
+            SwitchToAR();
         }
 
         if (tab.getText().equals("Tab 3")) {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         // This is called when a previously selected tab is selected again.
     }
 
-    public void SwitchToAR(View view){
+    public void SwitchToAR(){
         Intent intent = new Intent(getApplicationContext(), AR.class);
         startActivity(intent);
     }
