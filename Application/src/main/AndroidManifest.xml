@@ -22,6 +22,11 @@
 
     <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- This tag indicates that this application requires ARCore. This results in the application
+        only being visible in the Google Play Store on devices that support ARCore. -->
+    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
+
     <!--
         Theme is set on the application so that our custom theme is used by
         default by all Activities
@@ -31,6 +36,10 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Styled" >
 
+        <!-- This tag indicates that this application requires ARCore. This results in the
+            application only being visible in the Google Play Store on devices that support
+            ARCore. -->
+        <meta-data android:name="com.google.ar.core" android:value="required" />
         <activity android:name=".MainActivity">
 
             <!-- Launcher Intent filter -->
@@ -49,6 +58,7 @@
                 android:value="splitActionBarWhenNarrow" />
 
         </activity>
+        <activity android:name=".AR"></activity>
     </application>
 
 </manifest>
