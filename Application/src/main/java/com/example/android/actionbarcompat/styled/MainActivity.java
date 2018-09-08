@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));
 
         DatabaseComponent databaseComponent = new DatabaseComponent();
-        // databaseComponent.addUser("Alice", "John", 1995);
+        databaseComponent.test_addDummyEventData();
+        databaseComponent.getEvents();
 
         prepareEventData();     // Sample Events to test RecyclerView
     }
