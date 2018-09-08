@@ -20,7 +20,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This sample shows you how to use ActionBarCompat with a customized theme. It utilizes a split
@@ -37,6 +44,10 @@ import android.view.Menu;
  */
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
+    private List<Event> eventList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private EventsAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +63,19 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));
     }
 
+
+    private void prepareEventData() {
+        Event event = new Event("Test Event 1");
+        eventList.add(event);
+
+        event = new Event("Test Event 2");
+        eventList.add(event);
+    }
+
+    private void clearEventData() {
+        eventList.clear();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate menu from menu resource (res/menu/main)
@@ -64,6 +88,28 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a tab is selected.
+
+        if (tab.getText().equals("Tab 1")) {
+            setContentView(R.layout.sample_main);
+
+            recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+            mAdapter = new EventsAdapter(eventList);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
+
+            prepareEventData();
+        }
+
+        if (tab.getText().equals("Tab 2")) {
+            setContentView(R.layout.tab2);
+        }
+
+        if (tab.getText().equals("Tab 3")) {
+            setContentView(R.layout.tab3);
+        }
     }
 
     // Implemented from ActionBar.TabListener

@@ -22,10 +22,10 @@
     tools:showIn="@layout/sample_main"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <TextView
+        android:id="@+id/tab3_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+        android:text="Tab 3"/>
 </RelativeLayout>
 
