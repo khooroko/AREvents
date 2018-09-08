@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         if (tab.getText().equals("Tab 2")) {
             setContentView(R.layout.tab2);
+            switchToMaps();
         }
 
         if (tab.getText().equals("Tab 3")) {
@@ -136,6 +137,11 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     public void SwitchToAR(View view){
         Intent intent = new Intent(getApplicationContext(), AR.class);
+        startActivity(intent);
+    }
+
+    public void switchToMaps() {
+        Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
         startActivity(intent);
     }
 }
